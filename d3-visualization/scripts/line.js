@@ -1,19 +1,27 @@
-const drawLine = (xScale, yScale, data, xScaleAttrcountry, yScaleAttrcountry, parentGroup) => {
-    const line = d3.line()
-        .x(function (d) {
-            return xScale(d[xScaleAttrcountry]);
-        })
-        .y(function (d) {
-            return yScale(d[yScaleAttrcountry]);
-        });
+const drawLine = (
+  xScale,
+  yScale,
+  data,
+  xScaleAttrName,
+  yScaleAttrName,
+  parentGroup
+) => {
+  const line = d3
+    .line()
+    .x(function(d) {
+      return xScale(d[xScaleAttrName]);
+    })
+    .y(function(d) {
+      return yScale(d[yScaleAttrName]);
+    });
 
-    const path = parentGroup.append("path");
+  const path = parentGroup.append("path");
 
-    path
-        .data([data])
-        .attr("fill", "none")
-        .attr("stroke", "green")
-        .attr("stroke-width", 2)
-        .attr("class", "line")
-        .attr("d", line);
+  path
+    .data([data])
+    .attr("fill", "none")
+    .attr("stroke", "blue")
+    .attr("stroke-width", 2)
+    .attr("class", "line")
+    .attr("d", line);
 };
